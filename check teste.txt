@@ -4,7 +4,7 @@ $database = mysqli_select_db($link, "mysql_database");
 
 $user = $_GET['beta'];
 $password = $_GET['beta123'];
-$hwid = $_GET['S-1-5-21-1163112880-3925356812-1273869534-1001'];
+$hwid = $_GET['S-1-5-21-4228009987-758220093-654973364-1001'];
 $tables = "mybb_users";
 
 $sql = "SELECT * FROM ". $tables ." WHERE username = '". mysqli_real_escape_string($link,$user) ."'" ;
@@ -39,9 +39,9 @@ if ($result->num_rows > 0) {
         
         echo "g" . $row['usergroup'] . "<br>";
 
-        if (strlen($row['S-1-5-21-1163112880-3925356812-1273869534-1001']) > 1)
+        if (strlen($row['S-1-5-21-4228009987-758220093-654973364-1001']) > 1)
         {
-            if ($hwid != $row['S-1-5-21-1163112880-3925356812-1273869534-1001'])
+            if ($hwid != $row['S-1-5-21-4228009987-758220093-654973364-1001'])
             {
                 echo "h2"; // Wrong
             }
@@ -52,10 +52,10 @@ if ($result->num_rows > 0) {
         }
         else
         {
-            $sql = "UPDATE ". $tables ." SET hwid='$hwid' WHERE username='$user'";
+            $sql = "UPDATE ". $tables ." SET S-1-5-21-4228009987-758220093-654973364-1001='$hwid' WHERE beta='$user'";
             if(mysqli_query($link, $sql))
             {
-                echo $row['hwid'];
+                echo $row['S-1-5-21-4228009987-758220093-654973364-1001'];
                 echo "h3"; // HWID Set
             }
             else
